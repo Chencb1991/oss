@@ -9,6 +9,7 @@ oss简单的图片上传
 	<title>oss</title>
 </head>
 <body>
+<img id="imgd" src="">
 <input type="file" name="" id="file" value="" />
 <script type="text/javascript">
 	const date = new Date();
@@ -27,6 +28,7 @@ oss简单的图片上传
             client.multipartUpload(storeAs, this.files[0]).then(function (result) {
                 console.log(result.url);
                 //result.url是返回图片地址
+		$("#imgd").attr('src',result.url); 
               }).catch(function (err) {
                 console.log(err);
               });
